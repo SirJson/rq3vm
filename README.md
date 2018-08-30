@@ -34,4 +34,4 @@ Sorry this was a one day Project. So the best documentation is the src folder of
 
 Have fun! And tell me if you improved it or build something with it even tho it's totally half baked at the moment. Working on this for a day was worth it for sure so I think you wouldn't waste your time here. Unfortunately I don't have a need for a scripting language right now but if I would have this would be my choice.
 
-Special Thanks to jnz without him I would have still wondered why GCC is building a broken LCC compiler. Of course id Software for coming up with the idea in the first place and open source it and the ioquake3 Team to cleanup that mess that id Software left us.
+Special Thanks to **jnz** without him I would have still wondered why GCC is building a broken LCC compiler. Of course **id Software** for coming up with the idea in the first place and open source it and the **ioquake3 Team** to cleanup that mess that id Software left us.
