@@ -15,8 +15,8 @@ int vmMain(int command, int arg0, int arg1, int arg2, int arg3, int arg4,
         vals[i] = 0.45f;
     }
 
-    print("Hi {1}. This is a more complex example of formating strings in {2}. Because I really don't like {3}", 3, "Mr. Internet guy", "Rust", "printf()");
-    print("I will try to write {1} on your harddrive...", 1, "something");
+    print("Hi {0}. This is a more complex example of formating strings in {1}. Because I really don't like {2}", 3, "Mr. Internet guy", "Rust", "printf()");
+    print("I will try to write {0} on your harddrive...", 1, "something");
     file_write("secret.txt","Don't click on that link!\n\nhttps://www.youtube.com/watch?v=2Z4m4lnjxkY");
     message("The file is written and it looks like we don't have to implement everything as a syscall");
     return 0;

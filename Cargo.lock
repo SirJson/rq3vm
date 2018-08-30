@@ -284,7 +284,7 @@ dependencies = [
 
 [[package]]
 name = "rq3vm"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "libq3vm-sys 0.1.0",
  "strfmt 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)",

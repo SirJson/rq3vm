@@ -19,7 +19,7 @@ fn vm_syscall(func: isize, mut args: vm::CallArgs) -> isize {
             let msg = args.string(1);
             let argc = args.i32(2);
             let mut vars = HashMap::new();
-            for i in 1..=argc {
+            for i in 0..=argc {
                 let offset = 3;
                 vars.insert(i.to_string(), args.string((i + offset) as usize));
             }

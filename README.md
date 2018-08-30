@@ -22,9 +22,9 @@ At the moment I implemented only the following in the safe bindings:
 
 ## How to build the project?
 
-Since modify the compiler wasn't part of this experiment you can find the build tools on the [q3vm](https://github.com/jnz/q3vm) GitHub page. If your binaries refuse to build any code you might have more luck building everything with clang at the moment.
+Since modifying the compiler wasn't part of this experiment you can find the build tools on the [q3vm](https://github.com/jnz/q3vm) GitHub page. If your binaries refuse to build any code you might have more luck building everything with clang at the moment.
 
-After you build the compiler and the infrastructure put your freshly build tools somewhere in your PATH, goto example and run "make". You should end up with a File named "rustic.qvm". After that it's just a simple cargo run from the root directory.
+After you build the compiler and the infrastructure put your freshly build tools somewhere in your PATH. The qvm C code will be automatically linked to your code. I also added automatic QVM rebuilds for this project. All you have to do execute is cargo run. That is if you are on a Unix like machine. I didn't test this at all on Windows.
 
 ## How do I use this in my Project
 
@@ -32,6 +32,6 @@ Sorry this was a one day Project. So the best documentation is the src folder of
 
 ## Still reading?
 
-Have fun! And tell me if you improved it or build something with it even tho it's totally half baked at the moment. Working on this for a day was worth it for sure so I think you wouldn't waste your time here. Unfortunately I don't have a need for a scripting language right now but if I would have this would be my choice.
+Have fun! And tell me if you improved it or build something with it. Working on this for a day was worth it for sure so I think you wouldn't waste your time here. Unfortunately I don't have a need for a scripting language right now but if I would have this would be my choice.
 
-Special Thanks to **jnz** without him I would have still wondered why GCC is building a broken LCC compiler. Of course **id Software** for coming up with the idea in the first place and open source it and the **ioquake3 Team** to cleanup that mess that id Software left us.
+Special thanks to **jnz** without him I would have still wondered why GCC is building a broken LCC compiler. Of course **id Software** for coming up with the idea in the first place and open source it and the **ioquake3 Team** to cleanup that mess that id Software left us.
