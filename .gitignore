@@ -1,0 +1,5 @@
+**/target
+**/*.rs.bk
+*.crc32
+*.qvm
+secret.txt

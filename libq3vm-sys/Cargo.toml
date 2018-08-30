@@ -1,0 +1,13 @@
+[package]
+name = "libq3vm-sys"
+version = "0.1.0"
+authors = ["Raffael Zica <raffael@pixeltastic.de>"]
+build = "build.rs"
+
+[dependencies]
+lazy_static = "1"
+
+[build-dependencies]
+cc = "1"
+bindgen = "0.26"
+crc = "1.8"
