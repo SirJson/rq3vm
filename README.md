@@ -32,7 +32,7 @@ After you build the compiler and the infrastructure put your freshly build tools
 At the moment Library and example are mixed. libq3vm-sys contains just the raw and unsafe bindings to the Q3VM. It should be quite complete but who want's to use unsafe in every function?
 In order to to use the library right now just copy `vm.rs` and implement the `SyscallHandler` callback. The heavy lifiting is done by the VM module so all you have left to do is create a Q3VM object and pass it a Vec<u8> of a QVM File. `std::fs::File` should make that easy.
 
-Remember you have to provide your own standard library in the end. You can get inspired by mine (system.rs) but in the in you have to implement the Syscalls you need for your Application. For more information have a look at the [q3vm](https://github.com/jnz/q3vm) GitHub page. Also make sure to read the excelent Quake 3 Source Code Review from Fabien Sanglard. [He did a chapter about the VM](http://fabiensanglard.net/quake3/qvm.php) and it helped me a lot when I was working on my example.
+Remember you have to provide your own standard library in the end. You can get inspired by mine (system.rs) but in the in end you have to implement the Syscalls you need for your Application. For more information have a look at the [q3vm](https://github.com/jnz/q3vm) GitHub page. Also make sure to read the excelent Quake 3 Source Code Review from Fabien Sanglard. [He did a chapter about the VM](http://fabiensanglard.net/quake3/qvm.php) and it helped me a lot when I was working on my example.
 
 ## Still reading?
 
