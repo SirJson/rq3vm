@@ -16,9 +16,9 @@ use std::slice::Iter;
 
 const Q3VM_SRC: [&'static str; 4] = [
     "src/libq3vm.h",
+    "src/libq3vm.c",
     "ext/q3vm/src/vm/vm.h",
     "ext/q3vm/src/vm/vm.c",
-    "src/libq3vm.c",
 ];
 const Q3VM_HASH_FILE: &'static str = "./libq3vm.crc32";
 const Q3VM_NAME: &'static str = "q3vm";
