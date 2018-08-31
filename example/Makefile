@@ -13,6 +13,8 @@ else
 	TOOLCHAIN=
 	CLEANUP = rm -f
 	MKDIR = mkdir -p
+	SHELL=/bin/bash # required on macOS so that export PATH below works
+	export PATH := ../tools/linux:$(PATH)
 endif
 TARGET_EXTENSION=.qvm
 

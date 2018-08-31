@@ -1,0 +1,3 @@
+[submodule "libq3vm-sys/ext/q3vm"]
+	path = libq3vm-sys/ext/q3vm
+	url = https://github.com/jnz/q3vm.git
