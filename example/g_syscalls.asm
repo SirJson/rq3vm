@@ -1,6 +1,11 @@
 code
 
-equ	print					-1
-equ	file_write				-2
-equ	file_read				-3
-equ	to_int					-4
+equ	panic					-1
+equ	print					-2
+equ	file_write				-3
+equ	file_read				-4
+equ	to_int32				-5
+equ	string_new				-6
+equ	string_free				-7
+equ string_len				-8
+equ	str						-9

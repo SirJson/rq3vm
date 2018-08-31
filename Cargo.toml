@@ -7,3 +7,9 @@ build = "build.rs"
 [dependencies]
 libq3vm-sys = { path = "./libq3vm-sys" }
 strfmt = "0.1"
+regex = "1"
+lazy_static = "1"
+enum-primitive-derive = "0.1"
+num-traits = "0.2"
+log = "0.4"
+pretty_env_logger = "0.2"

@@ -1,3 +1,5 @@
 -o "rustic"
 build/g_main
 g_syscalls
+build/syslib
+build/app
