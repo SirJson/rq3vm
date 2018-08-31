@@ -18,7 +18,8 @@ At the moment I implemented only the following in the safe bindings:
 * Loading and starting VM Files from a Binary Blob.
 * Rust-like RAII like you know it from your other code. No manual freeing of resources.
 * Safe Interface for the Syscall Callback. That includes argument parsing and function resolution. That's one part of the project that really still needs more love because I left out some sanity checks that you wouldn't need for a demo but for production.
-* Sample implementation of some Q3VM --> Rust calls. Couldn't figure out yet how to pass values from Rust to Q3VM. Maybe I should start reading the manual.
+* Sample implementation of some Q3VM --> Rust calls and back.
+* Example code how one could use Rust features from C.
 
 ## How to build the project?
 
