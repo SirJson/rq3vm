@@ -7,7 +7,7 @@ I think this project only exists because I'm so fascinated with the Quake 3 Engi
 
 At first I wanted to re-implement the whole VM in Rust but after I while I realized if I continue on this path my idea backlog will never go down.
 
-So I used this as an opportunity to learn about mixing and linking C Code with Rust and Bindgen.
+So I used this as an opportunity to learn about mixing and linking C Code with Rust and bindgen.
 
 ## So what is working and what not?
 
@@ -19,6 +19,8 @@ At the moment I implemented only the following in the safe bindings:
 * Rust-like RAII like you know it from your other code. No manual freeing of resources or unsafe code you have to handle yourself.
 * Safe Interface for the Syscall Callback. Might need more love to be production ready.
 * Example implementation of some Q3VM --> Rust calls and back.
+
+Also note that thanks to the `cc` crate, `bindgen` and the simplicity of the VM it should be pretty portable. There is nothing JITed and I build the Q3VM directly from cargo into a static library that gets linked with your rust code. No DLLs or dependencies for the end user needed.
 
 ## How to build the project?
 
