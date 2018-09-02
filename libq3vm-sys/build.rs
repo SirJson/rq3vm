@@ -1,6 +1,6 @@
 // build.rs
 
-// TODO: Build LCC!
+// TODO: Does does work on Windows?
 
 extern crate bindgen;
 extern crate cc;
@@ -8,28 +8,36 @@ extern crate crc;
 
 use crc::crc32;
 use std::env;
-use std::fs::File;
+use std::fs::{self, File};
 use std::io::prelude::*;
 use std::io::{BufReader, BufWriter};
 use std::path::PathBuf;
 use std::slice::Iter;
 
 const Q3VM_SRC: [&'static str; 4] = [
-    "src/libq3vm.h",
-    "src/libq3vm.c",
     "ext/q3vm/src/vm/vm.h",
     "ext/q3vm/src/vm/vm.c",
+    "src/libq3vm.h",
+    "src/libq3vm.c",
 ];
+
 const Q3VM_HASH_FILE: &'static str = "./libq3vm.crc32";
-const Q3VM_NAME: &'static str = "q3vm";
-//const LCC_HASH_FILE: &'static str = "./lcc.crc32";
-//const LCC_BIN: &'static str = "./ext/bin";
+const LCC_HASH_FILE: &'static str = "./lcc.crc32";
+const RCC_HASH_FILE: &'static str = "./rcc.crc32";
+const ETC_HASH_FILE: &'static str = "./etc.crc32";
+const CPP_HASH_FILE: &'static str = "./cpp.crc32";
+const Q3ASM_HASH_FILE: &'static str = "./q3asm.crc32";
+
+const Q3VM_TARGET: &'static str = "q3vm";
+
+const CPP_SRC_PATH: &'static str = "ext/q3vm/lcc/cpp";
 
 fn cargo_print(msg: std::fmt::Arguments) {
     println!("cargo:warning={}", msg);
 }
 
-fn compute_crc32(files: Iter<&str>) -> Vec<u32> {
+fn compute_crc32<T>(files: Iter<T>) -> Vec<u32>
+    where T: std::convert::AsRef<std::path::Path>{
     let mut results: Vec<u32> = Vec::new();
     for srcfile in files {
         let mut file = File::open(srcfile).unwrap();
@@ -78,12 +86,24 @@ fn write_hash_file(file: &str, crc32: &Vec<u32>) {
     }
 }
 
+fn get_cpp_src() -> Vec<String> {
+    let path = fs::canonicalize(CPP_SRC_PATH).expect("Failed to canonicalize cpp source path");
+    fs::read_dir(path).expect("Failed to read cpp source path")
+        .filter(|pool| !pool.is_err())
+        .map(|m| m.unwrap().path())
+        .filter(|x| x.extension().unwrap_or_default().to_str().unwrap_or_default()  == "c" || x.extension().unwrap_or_default().to_str().unwrap_or_default()  == "h")
+        .map(|f| String::from(f.to_str().unwrap()))
+        .collect()
+}
+
+fn build_lcc() {}
+
 fn build_q3vm() {
-    cargo_print(format_args!("Rebuilding lib{}!", Q3VM_NAME));
+    cargo_print(format_args!("Building lib{}!", Q3VM_TARGET));
     cc::Build::new()
-        .include("src/q3vm/src/vm")
+        .include("ext/q3vm/src/vm")
         .files(Q3VM_SRC.iter())
-        .compile(Q3VM_NAME);
+        .compile(Q3VM_TARGET);
 
     let bindings = bindgen::Builder::default()
         .header(Q3VM_SRC[0])
@@ -105,13 +125,17 @@ fn link_lib(out_dir: &str, name: &str) {
 
 fn main() {
     let out_dir = env::var("OUT_DIR").unwrap();
+    let cpp_src = get_cpp_src();
 
     let q3vm_hash = compute_crc32(Q3VM_SRC.iter());
+    let cpp_hash = compute_crc32(cpp_src.iter());
+
+    write_hash_file(CPP_HASH_FILE, &cpp_hash);
 
     if !crc32_file_match(&q3vm_hash, Q3VM_HASH_FILE) {
         build_q3vm();
         write_hash_file(Q3VM_HASH_FILE, &q3vm_hash);
     } else {
-        link_lib(&out_dir, Q3VM_NAME);
+        link_lib(&out_dir, Q3VM_TARGET);
     }
 }
