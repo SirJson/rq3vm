@@ -3,3 +3,4 @@
 *.crc32
 *.qvm
 secret.txt
+libq3vm-sys/ext/bin/*
