@@ -44,10 +44,6 @@ fn cargo_printf(msg: std::fmt::Arguments) {
     println!("cargo:warning={}", msg);
 }
 
-fn cargo_print(msg: &str) {
-    println!("cargo:warning={}", msg);
-}
-
 fn compute_crc32<T>(files: Iter<T>) -> Vec<u32>
     where T: std::convert::AsRef<std::path::Path>{
     let mut results: Vec<u32> = Vec::new();
@@ -163,7 +159,10 @@ fn build_q3vm() {
         .include("ext/q3vm/src/vm")
         .files(Q3VM_SRC.iter())
         .compile(Q3VM_TARGET);
+}
 
+fn generate_bindings()
+{
     let bindings = bindgen::Builder::default()
         .header(Q3VM_SRC[0])
         .generate_comments(false)
@@ -227,9 +226,10 @@ fn main() {
         write_hash_file(LCC_HASH_FILE, &toolset_hashes[LCC_HASH_FILE]);
         write_hash_file(CPP_HASH_FILE, &toolset_hashes[CPP_HASH_FILE]);
     }
-
-    if !crc32_file_match(&q3vm_hash, Q3VM_HASH_FILE) {
+    let bindings_exist = PathBuf::from(env::var("OUT_DIR").unwrap()).join("bindings.rs").exists();
+    if !crc32_file_match(&q3vm_hash, Q3VM_HASH_FILE) || !bindings_exist {
         build_q3vm();
+        generate_bindings();
         write_hash_file(Q3VM_HASH_FILE, &q3vm_hash);
     } else {
         link_lib(&out_dir, Q3VM_TARGET);

@@ -19,7 +19,7 @@ use std::io::{self, Read};
 
 fn main() -> Result<(), io::Error> {
     pretty_env_logger::init_custom_env("info");
-    vm_compile!("/home/drdoom/Projects/rq3vm/libq3vm-sys/tools","example/g_syscalls.asm","game" => ["example/g_main.c","example/syslib.c","example/app.c"]);
+    vm_compile!("libq3vm-sys/tools","example/g_syscalls.asm","game" => ["example/g_main.c","example/syslib.c","example/app.c"]);
 
     let filepath = "game.qvm";
     let mut bytecode: Vec<u8> = Vec::new();

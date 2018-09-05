@@ -27,6 +27,7 @@ macro_rules! vm_compile {
         use $crate::std::io::Write;
 
         let mut asm_files: Vec<String> = Vec::new();
+        let tools_path = fs::canonicalize($tools).expect("Failed to canonicalize tools path");
 $(
         let src_path = fs::canonicalize($src_file).expect("Failed to find file");
         fs::create_dir("vm_obj").unwrap_or(());
@@ -37,7 +38,7 @@ $(
         let args = &["-DQ3_VM", "-S", "-Wf-target=bytecode", "-Wf-g", "-o", &asm_file, src_str];
         println!("Compiling: {}...", $src_file);
         let result = Command::new("lcc")
-        .env("PATH", $tools)
+        .env("PATH", &tools_path)
         .args(args)
         .output()
         .expect("Failed to compile script source code");
@@ -58,7 +59,7 @@ $(
         file.sync_all().unwrap();
 
         let result = Command::new("q3asm")
-        .env("PATH", $tools)
+        .env("PATH", &tools_path)
         .args(&["-f",&linker_script_path])
         .output()
         .expect("Failed to assemble byte code");

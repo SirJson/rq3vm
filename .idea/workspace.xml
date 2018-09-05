@@ -10,20 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2257db7-f7ff-47ec-aec3-a245d5aec406" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/minimal.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/example/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libq3vm-sys/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libq3vm-sys/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libq3vm-sys/build.rs" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/build.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libq3vm-sys/ext/bin/.gitkeep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libq3vm-sys/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/linux/.gitignore" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +45,7 @@
           <entry key="lock" value="2" />
           <entry key="output" value="1" />
           <entry key="q3asm" value="5" />
-          <entry key="rs" value="15" />
+          <entry key="rs" value="16" />
           <entry key="script" value="1" />
           <entry key="toml" value="6" />
           <entry key="txt" value="1" />
@@ -64,7 +56,7 @@
           <entry key="Assembly file" value="7" />
           <entry key="ObjectiveC" value="2" />
           <entry key="PLAIN_TEXT" value="28" />
-          <entry key="Rust" value="15" />
+          <entry key="Rust" value="16" />
           <entry key="TOML file" value="8" />
         </counts>
       </usages-collector>
@@ -73,7 +65,7 @@
           <entry key="Makefile" value="9" />
           <entry key="gitignore" value="42" />
           <entry key="q3asm" value="10" />
-          <entry key="rs" value="4856" />
+          <entry key="rs" value="5017" />
           <entry key="toml" value="54" />
           <entry key="txt" value="1" />
         </counts>
@@ -81,7 +73,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="62" />
-          <entry key="Rust" value="4856" />
+          <entry key="Rust" value="5017" />
           <entry key="TOML file" value="54" />
         </counts>
       </usages-collector>
@@ -91,6 +83,15 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/libq3vm-sys/build.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="484">
+                  <caret line="235" column="5" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/system.rs">
               <provider selected="true" editor-type-id="text-editor">
@@ -103,8 +104,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/libq3vm-sys/src/lib.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="318">
-                  <caret line="130" column="1" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
+                <state relative-caret-position="72">
+                  <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -112,8 +113,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/vm.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="148">
-                  <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+                <state relative-caret-position="1012">
+                  <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
                   <folding>
                     <element signature="e#2887#2888#0" expanded="true" />
                     <element signature="e#2941#2942#0" expanded="true" />
@@ -131,7 +132,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="168">
@@ -161,8 +162,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="388">
-                  <caret line="32" selection-start-line="32" selection-end-line="32" />
+                <state relative-caret-position="282">
+                  <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
@@ -196,6 +197,7 @@
       <find>asm_dir</find>
       <find>asm_file</find>
       <find>src_path</find>
+      <find>toolstools</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,17 +207,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/secret.txt" />
-        <option value="$PROJECT_DIR$/libq3vm-sys/build.rs" />
-        <option value="$PROJECT_DIR$/libq3vm-sys/src/lib.rs" />
         <option value="$PROJECT_DIR$/example/minimal.c" />
         <option value="$PROJECT_DIR$/build.rs" />
         <option value="$PROJECT_DIR$/example/Makefile" />
         <option value="$PROJECT_DIR$/vm_obj/example/game.q3asm" />
-        <option value="$PROJECT_DIR$/src/vm.rs" />
-        <option value="$PROJECT_DIR$/src/main.rs" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
         <option value="$PROJECT_DIR$/libq3vm-sys/Cargo.toml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main.rs" />
+        <option value="$PROJECT_DIR$/src/vm.rs" />
+        <option value="$PROJECT_DIR$/libq3vm-sys/src/lib.rs" />
+        <option value="$PROJECT_DIR$/libq3vm-sys/build.rs" />
       </list>
     </option>
   </component>
@@ -271,6 +273,12 @@
             <path>
               <item name="rq3vm" type="b2602c69:ProjectViewProjectNode" />
               <item name="rq3vm" type="462c0819:PsiDirectoryNode" />
+              <item name="libq3vm-sys" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rq3vm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rq3vm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -321,18 +329,17 @@
       <updated>1535925809174</updated>
       <workItem from="1535925812528" duration="3741000" />
       <workItem from="1535929619741" duration="1351000" />
-      <workItem from="1536094250670" duration="15557000" />
+      <workItem from="1536094250670" duration="17008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20649000" />
+    <option name="totallyTimeSpent" value="22100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2880" y="720" width="1920" height="1046" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25587606" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25587606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -344,7 +351,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49946582" visible="true" weight="0.3492927" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49946582" visible="true" weight="0.3492927" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005342" side_tool="true" weight="0.3492927" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -444,26 +451,6 @@
     <entry file="file://$PROJECT_DIR$/tools/linux/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/build.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="17" selection-start-line="17" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="e#870#871#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/src/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="130" column="1" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/minimal.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -520,17 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
-          <folding>
-            <element signature="e#2887#2888#0" expanded="true" />
-            <element signature="e#2941#2942#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -552,21 +528,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Cargo.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/Cargo.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
@@ -577,6 +539,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+          <folding>
+            <element signature="e#2887#2888#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/src/lib.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/Cargo.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/build.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="235" column="5" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -14,8 +14,6 @@ use std::ffi::{CStr, CString};
 use std::os::raw;
 use std::slice;
 use std::sync::Mutex;
-use std::path::Path;
-use std::slice::Iter;
 
 pub type VMHandle = vm_s;
 pub type SyscallHandler = fn(function: isize, args: CallArgs, name: String) -> isize;
