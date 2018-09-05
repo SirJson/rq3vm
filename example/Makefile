@@ -14,7 +14,7 @@ else
 	CLEANUP = rm -f
 	MKDIR = mkdir -p
 	SHELL=/bin/bash # required on macOS so that export PATH below works
-	export PATH := ../tools/linux:$(PATH)
+	export PATH := /home/drdoom/Projects/rq3vm/libq3vm-sys/tools:$(PATH)
 endif
 TARGET_EXTENSION=.qvm
 
@@ -40,6 +40,7 @@ OBJS             = $(addprefix $(OBJDIR)/,$(OBJ_NAMES:%.c=%.asm))
 
 $(OBJDIR)/%.asm: %.c
 	@echo 'CC: $<'
+	@echo 'CC2: $@'
 	@$(CC) $(CFLAGS) -o $@ $<
 
 all: $(TARGET)

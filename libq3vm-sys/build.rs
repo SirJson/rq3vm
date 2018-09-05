@@ -38,7 +38,7 @@ const CPP_SRC_DIR: &'static str = "/cpp";
 const RCC_SRC_DIR: &'static str = "/src";
 const LCC_SRC_DIR: &'static str = "/etc";
 
-const TARGET_DIR: &'static str = "ext/bin";
+const BINARY_DIR: &'static str = "tools";
 
 fn cargo_printf(msg: std::fmt::Arguments) {
     println!("cargo:warning={}", msg);
@@ -192,6 +192,7 @@ fn cargo_cp(src: String, target: String)
 }
 
 fn main() {
+    std::fs::create_dir(BINARY_DIR).unwrap_or(()); // If the directory already exists do nothing.
     let out_dir = env::var("OUT_DIR").unwrap();
 
     let q3asm_src = get_q3asm_src();
@@ -212,16 +213,16 @@ fn main() {
         if let Err(error) = run_make("q3asm", Q3ASM_SRC_PATH) {
             panic!("Failed to build q3asm: {:?}",error)
         }
-        cargo_cp(format!("{}/q3asm",Q3ASM_SRC_PATH),format!("{}/q3asm",TARGET_DIR));
+        cargo_cp(format!("{}/q3asm",Q3ASM_SRC_PATH),format!("{}/q3asm", BINARY_DIR));
         write_hash_file(Q3ASM_HASH_FILE, &toolset_hashes[Q3ASM_HASH_FILE]);
     }
     if !crc32_file_match(&toolset_hashes[RCC_HASH_FILE], RCC_HASH_FILE) || !crc32_file_match(&toolset_hashes[LCC_HASH_FILE], LCC_HASH_FILE) || !crc32_file_match(&toolset_hashes[CPP_HASH_FILE], CPP_HASH_FILE)  {
         if let Err(error) = run_make("lcc", LCC_BASE_PATH) {
             panic!("Failed to build lcc: {:?}",error);
         }
-        cargo_cp(format!("{}/build/lcc",LCC_BASE_PATH), format!("{}/lcc",TARGET_DIR));
-        cargo_cp(format!("{}/build/rcc",LCC_BASE_PATH),format!("{}/q3rcc",TARGET_DIR));
-        cargo_cp(format!("{}/build/cpp",LCC_BASE_PATH),format!("{}/q3cpp",TARGET_DIR));
+        cargo_cp(format!("{}/build/lcc",LCC_BASE_PATH), format!("{}/lcc", BINARY_DIR));
+        cargo_cp(format!("{}/build/rcc",LCC_BASE_PATH),format!("{}/q3rcc", BINARY_DIR));
+        cargo_cp(format!("{}/build/cpp",LCC_BASE_PATH),format!("{}/q3cpp", BINARY_DIR));
         write_hash_file(RCC_HASH_FILE, &toolset_hashes[RCC_HASH_FILE]);
         write_hash_file(LCC_HASH_FILE, &toolset_hashes[LCC_HASH_FILE]);
         write_hash_file(CPP_HASH_FILE, &toolset_hashes[CPP_HASH_FILE]);

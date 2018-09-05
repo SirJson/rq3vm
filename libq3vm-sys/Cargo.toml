@@ -1,6 +1,6 @@
 [package]
 name = "libq3vm-sys"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Raffael Zica <raffael@pixeltastic.de>"]
 build = "build.rs"
 

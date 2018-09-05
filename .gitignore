@@ -2,5 +2,7 @@
 **/*.rs.bk
 *.crc32
 *.qvm
+*.map
+vm_obj/*
 secret.txt
-libq3vm-sys/ext/bin/*
+libq3vm-sys/tools/*
