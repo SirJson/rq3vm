@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2257db7-f7ff-47ec-aec3-a245d5aec406" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libq3vm-sys/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libq3vm-sys/build.rs" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/build.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libq3vm-sys/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/libq3vm-sys/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,16 +22,18 @@
     <session id="-2136562422">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Makefile" value="10" />
+          <entry key="Makefile" value="11" />
           <entry key="asm" value="7" />
           <entry key="c" value="2" />
           <entry key="crc32" value="6" />
@@ -55,7 +52,7 @@
         <counts>
           <entry key="Assembly file" value="7" />
           <entry key="ObjectiveC" value="2" />
-          <entry key="PLAIN_TEXT" value="28" />
+          <entry key="PLAIN_TEXT" value="29" />
           <entry key="Rust" value="16" />
           <entry key="TOML file" value="8" />
         </counts>
@@ -95,7 +92,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/system.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="576">
+                <state relative-caret-position="2232">
                   <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
                 </state>
               </provider>
@@ -104,7 +101,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/libq3vm-sys/src/lib.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="72">
+                <state relative-caret-position="360">
                   <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
                 </state>
               </provider>
@@ -113,12 +110,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/vm.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1012">
+                <state relative-caret-position="1464">
                   <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#2887#2888#0" expanded="true" />
-                    <element signature="e#2941#2942#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -162,7 +155,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="282">
+                <state relative-caret-position="504">
                   <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
                 </state>
               </provider>
@@ -171,7 +164,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/example/Makefile">
               <provider selected="true" editor-type-id="text-editor">
@@ -258,6 +251,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,7 +284,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,17 +322,20 @@
       <updated>1535925809174</updated>
       <workItem from="1535925812528" duration="3741000" />
       <workItem from="1535929619741" duration="1351000" />
-      <workItem from="1536094250670" duration="17008000" />
+      <workItem from="1536094250670" duration="17192000" />
+      <workItem from="1536271062444" duration="20000" />
+      <workItem from="1536271134941" duration="626000" />
+      <workItem from="1536331976776" duration="45000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22100000" />
+    <option name="totallyTimeSpent" value="22975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2880" y="720" width="1920" height="1046" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25587606" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26549146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -439,18 +435,14 @@
     <entry file="file://$PROJECT_DIR$/libq3vm-sys/rcc.crc32">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/ext/bin/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/ext/bin/.gitkeep" />
     <entry file="file://$PROJECT_DIR$/secret.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/libq3vm-sys/Cargo.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/linux/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/linux/.gitignore" />
     <entry file="file://$PROJECT_DIR$/example/minimal.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -458,23 +450,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/debug/build/rq3vm-f993bc47ed47f918/output">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_obj/example/minimal.c.asm">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/debug/build/rq3vm-f993bc47ed47f918/output" />
+    <entry file="file://$PROJECT_DIR$/vm_obj/example/minimal.c.asm" />
     <entry file="file://$PROJECT_DIR$/vm_obj/example/syslib.c.asm">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -484,22 +461,12 @@
     <entry file="file://$PROJECT_DIR$/vm_obj/example/app.c.asm">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vm_obj/example/g_syscalls.asm">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/vm_obj/example/g_syscalls.asm" />
+    <entry file="file://$PROJECT_DIR$/script" />
     <entry file="file://$PROJECT_DIR$/example/rustic.q3asm">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/g_syscalls.asm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/g_syscalls.asm" />
     <entry file="file://$PROJECT_DIR$/vm_obj/example/game.q3asm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -507,28 +474,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.rs">
+    <entry file="file://$PROJECT_DIR$/build.rs" />
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/build.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/g_syscalls.asm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="484">
+          <caret line="235" column="5" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
+        <state relative-caret-position="2232">
           <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cargo.toml">
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/src/lib.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vm.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1464">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libq3vm-sys/Cargo.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
@@ -542,42 +517,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
+    <entry file="file://$PROJECT_DIR$/example/g_syscalls.asm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        <state relative-caret-position="264">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vm.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-          <folding>
-            <element signature="e#2887#2888#0" expanded="true" />
-            <element signature="e#2941#2942#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/src/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/Cargo.toml">
+    <entry file="file://$PROJECT_DIR$/Cargo.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libq3vm-sys/build.rs">
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="235" column="5" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
+        <state relative-caret-position="504">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
         </state>
       </provider>
     </entry>
