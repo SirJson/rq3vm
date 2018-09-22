@@ -7,3 +7,4 @@ vm_obj/*
 secret.txt
 libq3vm-sys/tools/*
 *.log
+Cargo.lock
