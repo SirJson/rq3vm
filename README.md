@@ -1,5 +1,13 @@
 # rq3vm
 
+### Be sure to know that this crate is at the moment in a transition phase from "prototype" to a publish-ready crate which means some high level redesigning, writing better examples and some project reorganizing.
+
+### _What you will find on the master branch right now might not even build._
+
+### The moment I'm done with everything you can download this smoothly from crates.io but until then you might have to get your hands dirty to get something running.
+
+***
+
 Ever wanted to switch from C to Rust only to write your app again in C? Then this Project is for you!
 
 I think this project only exists because I'm so fascinated with the Quake 3 Engine Architecture. And I recently saw that someone on Reddit called ([jnz](https://github.com/jnz)) that separated the Quake 3 Arena Virtual Machine from the rest of the game and made it available for general purpose use. The original thread can be found [here](https://www.reddit.com/r/programming/comments/9b839q/embedding_the_quake_3_virtual_machine_in_your_own/)
