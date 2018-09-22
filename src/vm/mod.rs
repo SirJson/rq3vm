@@ -1,25 +1,21 @@
-use libq3vm_sys;
-pub use libq3vm_sys::CallArgs;
-pub use libq3vm_sys::SyscallHandler;
+use libq3vm_sys::{self, VMHandle};
+pub use libq3vm_sys::{CallArgs, SyscallHandler};
 use std::ffi::CString;
-use system::Environment;
 
-#[allow(dead_code)]
-pub struct Q3VM {
-    module: CString,
-    bytecode: Vec<u8>,
-    handle: libq3vm_sys::VMHandle,
-}
+pub mod exec_env;
+pub mod stdlib;
+
+use exec_env::{Environment, ExecEnv};
 
 #[macro_export]
 macro_rules! vm_compile {
     ($tools:expr, $syscall_def:expr, $target:expr => [ $( $src_file:expr ),* ]) => {
-        use $crate::std::process::Command;
-        use $crate::std::fs;
-        use $crate::std::env;
-        use $crate::std::path::PathBuf;
-        use $crate::std::fs::File;
-        use $crate::std::io::Write;
+        use ::std::process::Command;
+        use ::std::fs;
+        use ::std::env;
+        use ::std::path::PathBuf;
+        use ::std::fs::File;
+        use ::std::io::Write;
 
         fn print_byte_str(data: Vec<u8>) {
             match String::from_utf8(data) {
@@ -77,6 +73,13 @@ $(
     }
 }
 
+#[allow(dead_code)]
+pub struct Q3VM {
+    module: CString,
+    bytecode: Vec<u8>,
+    handle: VMHandle,
+}
+
 impl Q3VM {
     pub fn new(module_name: &str, code: Vec<u8>, syscalls: SyscallHandler) -> Self {
         let module = CString::new(module_name).unwrap();
@@ -88,6 +91,14 @@ impl Q3VM {
             bytecode,
             handle,
         }
+    }
+
+    pub fn get_exec_env(module: String) -> ExecEnv {
+        let env_store = &mut exec_env::ENVIONRMENTS.lock().unwrap();
+        env_store
+            .get_mut(&module)
+            .expect("Missing environment for VM!")
+            .clone()
     }
 
     pub fn call(&mut self, command: i32, args: &[i32]) {

@@ -1,0 +1,653 @@
+#![feature(prelude_import)]
+#![no_std]
+#[prelude_import]
+use ::std::prelude::v1::*;
+#[macro_use]
+extern crate std;
+extern crate pretty_env_logger;
+#[macro_use]
+extern crate rq3vm;
+#[macro_use]
+extern crate enum_primitive_derive;
+#[macro_use]
+extern crate log;
+#[macro_use]
+extern crate lazy_static;
+extern crate num_traits;
+extern crate regex;
+extern crate strfmt;
+
+use rq3vm::Q3VM;
+use std::io::{self, Read};
+
+mod demo_api {
+
+
+
+
+
+
+    use num_traits::FromPrimitive;
+    use regex::Regex;
+    use std::collections::HashMap;
+    use std::fs;
+    use rq3vm;
+    use rq3vm::stdlib;
+    use strfmt::strfmt;
+    #[allow(missing_copy_implementations)]
+    #[allow(non_camel_case_types)]
+    #[allow(dead_code)]
+    struct FMT_TOKEN {
+        __private_field: (),
+    }
+    #[doc(hidden)]
+    static FMT_TOKEN: FMT_TOKEN = FMT_TOKEN{__private_field: (),};
+    impl ::__Deref for FMT_TOKEN {
+        type
+        Target
+        =
+        Regex;
+        #[allow(unsafe_code)]
+        fn deref(&self) -> &Regex {
+            unsafe {
+                #[inline(always)]
+                fn __static_ref_initialize() -> Regex {
+                    Regex::new(r"[{]\d[}]").unwrap()
+                }
+                #[inline(always)]
+                unsafe fn __stability() -> &'static Regex {
+                    static mut LAZY: ::lazy::Lazy<Regex> = ::lazy::Lazy::INIT;
+                    LAZY.get(__static_ref_initialize)
+                }
+                __stability()
+            }
+        }
+    }
+    impl ::LazyStatic for FMT_TOKEN {
+        fn initialize(lazy: &Self) { let _ = &**lazy; }
+    }
+    enum SysCode {
+        Panic = 1,
+        Print = 2,
+        FileWrite = 3,
+        FileRead = 4,
+        ToInt32 = 5,
+        StringNew = 6,
+        StringFree = 7,
+        StringLen = 8,
+        Str = 9,
+    }
+    impl ::num_traits::FromPrimitive for SysCode {
+        fn from_u64(val: u64) -> Option<Self> {
+            match val as _ {
+                1 => Some(SysCode::Panic),
+                2 => Some(SysCode::Print),
+                3 => Some(SysCode::FileWrite),
+                4 => Some(SysCode::FileRead),
+                5 => Some(SysCode::ToInt32),
+                6 => Some(SysCode::StringNew),
+                7 => Some(SysCode::StringFree),
+                8 => Some(SysCode::StringLen),
+                9 => Some(SysCode::Str),
+                _ => None,
+            }
+        }
+        fn from_i64(val: i64) -> Option<Self> {
+            match val as _ {
+                1 => Some(SysCode::Panic),
+                2 => Some(SysCode::Print),
+                3 => Some(SysCode::FileWrite),
+                4 => Some(SysCode::FileRead),
+                5 => Some(SysCode::ToInt32),
+                6 => Some(SysCode::StringNew),
+                7 => Some(SysCode::StringFree),
+                8 => Some(SysCode::StringLen),
+                9 => Some(SysCode::Str),
+                _ => None,
+            }
+        }
+    }
+    impl ::num_traits::ToPrimitive for SysCode {
+        fn to_u64(&self) -> Option<u64> {
+            match *self {
+                SysCode::Panic => Some(1 as u64),
+                SysCode::Print => Some(2 as u64),
+                SysCode::FileWrite => Some(3 as u64),
+                SysCode::FileRead => Some(4 as u64),
+                SysCode::ToInt32 => Some(5 as u64),
+                SysCode::StringNew => Some(6 as u64),
+                SysCode::StringFree => Some(7 as u64),
+                SysCode::StringLen => Some(8 as u64),
+                SysCode::Str => Some(9 as u64),
+            }
+        }
+        fn to_i64(&self) -> Option<i64> {
+            match *self {
+                SysCode::Panic => Some(1 as i64),
+                SysCode::Print => Some(2 as i64),
+                SysCode::FileWrite => Some(3 as i64),
+                SysCode::FileRead => Some(4 as i64),
+                SysCode::ToInt32 => Some(5 as i64),
+                SysCode::StringNew => Some(6 as i64),
+                SysCode::StringFree => Some(7 as i64),
+                SysCode::StringLen => Some(8 as i64),
+                SysCode::Str => Some(9 as i64),
+            }
+        }
+    }
+    fn demo_print(mut args: rq3vm::CallArgs) -> isize {
+        let msg = args.string(1);
+        let token = FMT_TOKEN.find_iter(&msg);
+        let argc = token.count();
+        let mut vars = HashMap::new();
+        for i in 0..argc {
+            let offset = 2;
+            vars.insert(i.to_string(), args.string((i + offset) as usize));
+        }
+        {
+            ::io::_print(::std::fmt::Arguments::new_v1_formatted(&["", "\n"],
+                                                                 &match (&strfmt(&msg,
+                                                                                 &vars).unwrap(),)
+                                                                      {
+                                                                      (arg0,)
+                                                                      =>
+                                                                      [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                   ::std::fmt::Display::fmt)],
+                                                                  },
+                                                                 &[::std::fmt::rt::v1::Argument{position:
+                                                                                                    ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                format:
+                                                                                                    ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                       ' ',
+                                                                                                                                   align:
+                                                                                                                                       ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                   flags:
+                                                                                                                                       0u32,
+                                                                                                                                   precision:
+                                                                                                                                       ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                   width:
+                                                                                                                                       ::std::fmt::rt::v1::Count::Implied,},}]));
+        };
+        0
+    }
+    fn demo_file_write(mut args: rq3vm::CallArgs) -> isize {
+        if let Err(error) = fs::write(args.string(1), args.string(2)) {
+            {
+                let lvl = ::Level::Error;
+                if lvl <= ::STATIC_MAX_LEVEL && lvl <= ::max_level() {
+                    ::__private_api_log(::std::fmt::Arguments::new_v1_formatted(&["file_write error: "],
+                                                                                &match (&error,)
+                                                                                     {
+                                                                                     (arg0,)
+                                                                                     =>
+                                                                                     [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                                  ::std::fmt::Display::fmt)],
+                                                                                 },
+                                                                                &[::std::fmt::rt::v1::Argument{position:
+                                                                                                                   ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                               format:
+                                                                                                                   ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                                      ' ',
+                                                                                                                                                  align:
+                                                                                                                                                      ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                                  flags:
+                                                                                                                                                      0u32,
+                                                                                                                                                  precision:
+                                                                                                                                                      ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                                  width:
+                                                                                                                                                      ::std::fmt::rt::v1::Count::Implied,},}]),
+                                        lvl,
+                                        &("helloq3::demo_api",
+                                          "helloq3::demo_api",
+                                          "src/demo_api.rs", 43u32));
+                }
+            };
+        }
+        0
+    }
+    pub fn call_handler(func: isize, mut args: rq3vm::CallArgs, name: String)
+     -> isize {
+        match SysCode::from_isize(func * -1) {
+            Some(SysCode::Panic) => {
+                ::rt::begin_panic_fmt(&::std::fmt::Arguments::new_v1_formatted(&["VM panic: "],
+                                                                               &match (&args.string(1),)
+                                                                                    {
+                                                                                    (arg0,)
+                                                                                    =>
+                                                                                    [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                                 ::std::fmt::Display::fmt)],
+                                                                                },
+                                                                               &[::std::fmt::rt::v1::Argument{position:
+                                                                                                                  ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                              format:
+                                                                                                                  ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                                     ' ',
+                                                                                                                                                 align:
+                                                                                                                                                     ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                                 flags:
+                                                                                                                                                     0u32,
+                                                                                                                                                 precision:
+                                                                                                                                                     ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                                 width:
+                                                                                                                                                     ::std::fmt::rt::v1::Count::Implied,},}]),
+                                      &("src/demo_api.rs", 50u32, 33u32))
+            }
+            Some(SysCode::Print) => demo_print(args),
+            Some(SysCode::FileWrite) => demo_file_write(args),
+            Some(SysCode::FileRead) => {
+                ::rt::begin_panic("not yet implemented",
+                                  &("src/demo_api.rs", 53u32, 36u32))
+            }
+            Some(SysCode::ToInt32) => stdlib::str_to_int(args) as isize,
+            Some(SysCode::StringNew) => {
+                ::rt::begin_panic("not yet implemented",
+                                  &("src/demo_api.rs", 55u32, 37u32))
+            }
+            Some(SysCode::StringFree) => {
+                ::rt::begin_panic("not yet implemented",
+                                  &("src/demo_api.rs", 56u32, 38u32))
+            }
+            Some(SysCode::StringLen) => {
+                ::rt::begin_panic("not yet implemented",
+                                  &("src/demo_api.rs", 57u32, 37u32))
+            }
+            Some(SysCode::Str) => {
+                ::rt::begin_panic("not yet implemented",
+                                  &("src/demo_api.rs", 58u32, 31u32))
+            }
+            None => stdlib::syscode_fault(func),
+        }
+    }
+}
+fn main() -> Result<(), io::Error> {
+    pretty_env_logger::init_custom_env("info");
+    use ::std::process::Command;
+    use ::std::fs;
+    use ::std::env;
+    use ::std::path::PathBuf;
+    use ::std::fs::File;
+    use ::std::io::Write;
+    fn print_byte_str(data: Vec<u8>) {
+        match String::from_utf8(data) {
+            Ok(msg) => {
+                if msg.len() > 0 {
+                    {
+                        ::io::_print(::std::fmt::Arguments::new_v1_formatted(&["",
+                                                                               "\n"],
+                                                                             &match (&msg,)
+                                                                                  {
+                                                                                  (arg0,)
+                                                                                  =>
+                                                                                  [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                               ::std::fmt::Display::fmt)],
+                                                                              },
+                                                                             &[::std::fmt::rt::v1::Argument{position:
+                                                                                                                ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                            format:
+                                                                                                                ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                                   ' ',
+                                                                                                                                               align:
+                                                                                                                                                   ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                               flags:
+                                                                                                                                                   0u32,
+                                                                                                                                               precision:
+                                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                               width:
+                                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,},}]));
+                    };
+                }
+            }
+            Err(err) => {
+                ::io::_eprint(::std::fmt::Arguments::new_v1_formatted(&["Failed to read compiler message: ",
+                                                                        "\n"],
+                                                                      &match (&err,)
+                                                                           {
+                                                                           (arg0,)
+                                                                           =>
+                                                                           [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                        ::std::fmt::Debug::fmt)],
+                                                                       },
+                                                                      &[::std::fmt::rt::v1::Argument{position:
+                                                                                                         ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                     format:
+                                                                                                         ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                            ' ',
+                                                                                                                                        align:
+                                                                                                                                            ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                        flags:
+                                                                                                                                            0u32,
+                                                                                                                                        precision:
+                                                                                                                                            ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                        width:
+                                                                                                                                            ::std::fmt::rt::v1::Count::Implied,},}]));
+            }
+        }
+    }
+    let mut asm_files: Vec<String> = Vec::new();
+    let tools_path =
+        fs::canonicalize("libq3vm-sys/tools").expect("Failed to canonicalize tools path");
+    let src_path =
+        fs::canonicalize("example/g_main.c").expect("Failed to find file");
+    fs::create_dir("vm_obj").unwrap_or(());
+    let asm_file =
+        ::fmt::format(::std::fmt::Arguments::new_v1_formatted(&["",
+                                                                "/vm_obj/",
+                                                                ".asm"],
+                                                              &match (&env::current_dir().unwrap().to_str().unwrap(),
+                                                                      &"example/g_main.c")
+                                                                   {
+                                                                   (arg0,
+                                                                    arg1) =>
+                                                                   [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                ::std::fmt::Display::fmt),
+                                                                    ::std::fmt::ArgumentV1::new(arg1,
+                                                                                                ::std::fmt::Display::fmt)],
+                                                               },
+                                                              &[::std::fmt::rt::v1::Argument{position:
+                                                                                                 ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                             format:
+                                                                                                 ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                    ' ',
+                                                                                                                                align:
+                                                                                                                                    ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                flags:
+                                                                                                                                    0u32,
+                                                                                                                                precision:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                width:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,},},
+                                                                ::std::fmt::rt::v1::Argument{position:
+                                                                                                 ::std::fmt::rt::v1::Position::At(1usize),
+                                                                                             format:
+                                                                                                 ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                    ' ',
+                                                                                                                                align:
+                                                                                                                                    ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                flags:
+                                                                                                                                    0u32,
+                                                                                                                                precision:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                width:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,},}]));
+    let asm_dir = PathBuf::from(&asm_file);
+    fs::create_dir_all(asm_dir.parent().unwrap()).unwrap_or(());
+    let src_str = src_path.to_str().expect("Non valid UTF-8 path provied");
+    let args =
+        &["-DQ3_VM", "-S", "-Wf-target=bytecode", "-Wf-g", "-o", &asm_file,
+          src_str];
+    {
+        ::io::_print(::std::fmt::Arguments::new_v1_formatted(&["Compiling: ",
+                                                               "...\n"],
+                                                             &match (&"example/g_main.c",)
+                                                                  {
+                                                                  (arg0,) =>
+                                                                  [::std::fmt::ArgumentV1::new(arg0,
+                                                                                               ::std::fmt::Display::fmt)],
+                                                              },
+                                                             &[::std::fmt::rt::v1::Argument{position:
+                                                                                                ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                            format:
+                                                                                                ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                   ' ',
+                                                                                                                               align:
+                                                                                                                                   ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                               flags:
+                                                                                                                                   0u32,
+                                                                                                                               precision:
+                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                               width:
+                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,},}]));
+    };
+    let result =
+        Command::new("lcc").env("PATH",
+                                &tools_path).args(args).output().expect("Failed to compile script source code");
+    print_byte_str(result.stdout);
+    print_byte_str(result.stderr);
+    asm_files.push(asm_file.clone());
+    let src_path =
+        fs::canonicalize("example/syslib.c").expect("Failed to find file");
+    fs::create_dir("vm_obj").unwrap_or(());
+    let asm_file =
+        ::fmt::format(::std::fmt::Arguments::new_v1_formatted(&["",
+                                                                "/vm_obj/",
+                                                                ".asm"],
+                                                              &match (&env::current_dir().unwrap().to_str().unwrap(),
+                                                                      &"example/syslib.c")
+                                                                   {
+                                                                   (arg0,
+                                                                    arg1) =>
+                                                                   [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                ::std::fmt::Display::fmt),
+                                                                    ::std::fmt::ArgumentV1::new(arg1,
+                                                                                                ::std::fmt::Display::fmt)],
+                                                               },
+                                                              &[::std::fmt::rt::v1::Argument{position:
+                                                                                                 ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                             format:
+                                                                                                 ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                    ' ',
+                                                                                                                                align:
+                                                                                                                                    ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                flags:
+                                                                                                                                    0u32,
+                                                                                                                                precision:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                width:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,},},
+                                                                ::std::fmt::rt::v1::Argument{position:
+                                                                                                 ::std::fmt::rt::v1::Position::At(1usize),
+                                                                                             format:
+                                                                                                 ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                    ' ',
+                                                                                                                                align:
+                                                                                                                                    ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                flags:
+                                                                                                                                    0u32,
+                                                                                                                                precision:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                width:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,},}]));
+    let asm_dir = PathBuf::from(&asm_file);
+    fs::create_dir_all(asm_dir.parent().unwrap()).unwrap_or(());
+    let src_str = src_path.to_str().expect("Non valid UTF-8 path provied");
+    let args =
+        &["-DQ3_VM", "-S", "-Wf-target=bytecode", "-Wf-g", "-o", &asm_file,
+          src_str];
+    {
+        ::io::_print(::std::fmt::Arguments::new_v1_formatted(&["Compiling: ",
+                                                               "...\n"],
+                                                             &match (&"example/syslib.c",)
+                                                                  {
+                                                                  (arg0,) =>
+                                                                  [::std::fmt::ArgumentV1::new(arg0,
+                                                                                               ::std::fmt::Display::fmt)],
+                                                              },
+                                                             &[::std::fmt::rt::v1::Argument{position:
+                                                                                                ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                            format:
+                                                                                                ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                   ' ',
+                                                                                                                               align:
+                                                                                                                                   ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                               flags:
+                                                                                                                                   0u32,
+                                                                                                                               precision:
+                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                               width:
+                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,},}]));
+    };
+    let result =
+        Command::new("lcc").env("PATH",
+                                &tools_path).args(args).output().expect("Failed to compile script source code");
+    print_byte_str(result.stdout);
+    print_byte_str(result.stderr);
+    asm_files.push(asm_file.clone());
+    let src_path =
+        fs::canonicalize("example/app.c").expect("Failed to find file");
+    fs::create_dir("vm_obj").unwrap_or(());
+    let asm_file =
+        ::fmt::format(::std::fmt::Arguments::new_v1_formatted(&["",
+                                                                "/vm_obj/",
+                                                                ".asm"],
+                                                              &match (&env::current_dir().unwrap().to_str().unwrap(),
+                                                                      &"example/app.c")
+                                                                   {
+                                                                   (arg0,
+                                                                    arg1) =>
+                                                                   [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                ::std::fmt::Display::fmt),
+                                                                    ::std::fmt::ArgumentV1::new(arg1,
+                                                                                                ::std::fmt::Display::fmt)],
+                                                               },
+                                                              &[::std::fmt::rt::v1::Argument{position:
+                                                                                                 ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                             format:
+                                                                                                 ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                    ' ',
+                                                                                                                                align:
+                                                                                                                                    ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                flags:
+                                                                                                                                    0u32,
+                                                                                                                                precision:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                width:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,},},
+                                                                ::std::fmt::rt::v1::Argument{position:
+                                                                                                 ::std::fmt::rt::v1::Position::At(1usize),
+                                                                                             format:
+                                                                                                 ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                    ' ',
+                                                                                                                                align:
+                                                                                                                                    ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                flags:
+                                                                                                                                    0u32,
+                                                                                                                                precision:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                width:
+                                                                                                                                    ::std::fmt::rt::v1::Count::Implied,},}]));
+    let asm_dir = PathBuf::from(&asm_file);
+    fs::create_dir_all(asm_dir.parent().unwrap()).unwrap_or(());
+    let src_str = src_path.to_str().expect("Non valid UTF-8 path provied");
+    let args =
+        &["-DQ3_VM", "-S", "-Wf-target=bytecode", "-Wf-g", "-o", &asm_file,
+          src_str];
+    {
+        ::io::_print(::std::fmt::Arguments::new_v1_formatted(&["Compiling: ",
+                                                               "...\n"],
+                                                             &match (&"example/app.c",)
+                                                                  {
+                                                                  (arg0,) =>
+                                                                  [::std::fmt::ArgumentV1::new(arg0,
+                                                                                               ::std::fmt::Display::fmt)],
+                                                              },
+                                                             &[::std::fmt::rt::v1::Argument{position:
+                                                                                                ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                            format:
+                                                                                                ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                   ' ',
+                                                                                                                               align:
+                                                                                                                                   ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                               flags:
+                                                                                                                                   0u32,
+                                                                                                                               precision:
+                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                               width:
+                                                                                                                                   ::std::fmt::rt::v1::Count::Implied,},}]));
+    };
+    let result =
+        Command::new("lcc").env("PATH",
+                                &tools_path).args(args).output().expect("Failed to compile script source code");
+    print_byte_str(result.stdout);
+    print_byte_str(result.stderr);
+    asm_files.push(asm_file.clone());
+    let syscall_file =
+        fs::canonicalize("example/g_syscalls.asm").expect("Failed to find syscall definitions");
+    let mut script =
+        PathBuf::from(&asm_files[0]).parent().unwrap().to_path_buf();
+    script.push("game.q3asm");
+    let linker_script_path = String::from(script.to_str().unwrap());
+    let mut file =
+        File::create(&linker_script_path).expect("Failed to create assembler script");
+    file.write(::fmt::format(::std::fmt::Arguments::new_v1_formatted(&["-o \"",
+                                                                       "\"\n"],
+                                                                     &match (&"game",)
+                                                                          {
+                                                                          (arg0,)
+                                                                          =>
+                                                                          [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                       ::std::fmt::Display::fmt)],
+                                                                      },
+                                                                     &[::std::fmt::rt::v1::Argument{position:
+                                                                                                        ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                    format:
+                                                                                                        ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                           ' ',
+                                                                                                                                       align:
+                                                                                                                                           ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                       flags:
+                                                                                                                                           0u32,
+                                                                                                                                       precision:
+                                                                                                                                           ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                       width:
+                                                                                                                                           ::std::fmt::rt::v1::Count::Implied,},}])).as_bytes()).expect("Failed to write line 1 of the assembler script. Do you have the permissions to write in that folder?");
+    file.write(::fmt::format(::std::fmt::Arguments::new_v1_formatted(&["",
+                                                                       "\n"],
+                                                                     &match (&syscall_file.to_str().expect("Non valid UTF-8 path provied"),)
+                                                                          {
+                                                                          (arg0,)
+                                                                          =>
+                                                                          [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                       ::std::fmt::Display::fmt)],
+                                                                      },
+                                                                     &[::std::fmt::rt::v1::Argument{position:
+                                                                                                        ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                    format:
+                                                                                                        ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                           ' ',
+                                                                                                                                       align:
+                                                                                                                                           ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                       flags:
+                                                                                                                                           0u32,
+                                                                                                                                       precision:
+                                                                                                                                           ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                       width:
+                                                                                                                                           ::std::fmt::rt::v1::Count::Implied,},}])).as_bytes()).expect("Failed to write line 2 of the assembler script. Do you have the permissions to write in that folder?");
+    for asm in asm_files {
+        file.write(::fmt::format(::std::fmt::Arguments::new_v1_formatted(&["",
+                                                                           "\n"],
+                                                                         &match (&asm,)
+                                                                              {
+                                                                              (arg0,)
+                                                                              =>
+                                                                              [::std::fmt::ArgumentV1::new(arg0,
+                                                                                                           ::std::fmt::Display::fmt)],
+                                                                          },
+                                                                         &[::std::fmt::rt::v1::Argument{position:
+                                                                                                            ::std::fmt::rt::v1::Position::At(0usize),
+                                                                                                        format:
+                                                                                                            ::std::fmt::rt::v1::FormatSpec{fill:
+                                                                                                                                               ' ',
+                                                                                                                                           align:
+                                                                                                                                               ::std::fmt::rt::v1::Alignment::Unknown,
+                                                                                                                                           flags:
+                                                                                                                                               0u32,
+                                                                                                                                           precision:
+                                                                                                                                               ::std::fmt::rt::v1::Count::Implied,
+                                                                                                                                           width:
+                                                                                                                                               ::std::fmt::rt::v1::Count::Implied,},}])).as_bytes()).expect("Failed to write a line of the assembler script. Do you have the permissions to write in that folder?");
+    }
+    file.sync_all().unwrap();
+    let result =
+        Command::new("q3asm").env("PATH",
+                                  &tools_path).args(&["-f",
+                                                      &linker_script_path]).output().expect("Failed to assemble byte code");
+    print_byte_str(result.stdout);
+    print_byte_str(result.stderr);
+    let filepath = "helloq3.qvm";
+    let mut bytecode: Vec<u8> = Vec::new();
+    let mut vm_file = File::open(filepath)?;
+    vm_file.read_to_end(&mut bytecode)?;
+    let mut vm = Q3VM::new(filepath, bytecode, demo_api::call_handler);
+    vm.call(0, &[]);
+    Ok(())
+}

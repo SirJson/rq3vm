@@ -2,13 +2,18 @@
 name = "rq3vm"
 version = "0.2.0"
 authors = ["Raffael Zica <raffael@pixeltastic.de>"]
+description = "Rusty high level wrapper for q3vm. Tries to make C scripting as ergonomic as possible"
+keywords = ["scripting", "game", "quake", "vm", "c"]
+repository = "https://gitlab.com/SirJson/rq3vm"
+readme = "README.md"
+exclude = ["**/*.gitignore"]
 
 [dependencies]
 libq3vm-sys = { path = "./libq3vm-sys" }
-strfmt = "0.1"
-regex = "1"
 lazy_static = "1"
-enum-primitive-derive = "0.1"
-num-traits = "0.2"
 log = "0.4"
-pretty_env_logger = "0.2"
+
+[[example]]
+name = "helloq3"
+path = "examples/helloq3"
+crate-type = ["bin"]

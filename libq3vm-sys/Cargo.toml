@@ -3,6 +3,11 @@ name = "libq3vm-sys"
 version = "0.1.4"
 authors = ["Raffael Zica <raffael@pixeltastic.de>"]
 build = "build.rs"
+description = "Raw C bindings to q3vm + some helper"
+keywords = ["scripting", "game", "quake", "vm", "c", "sys", "bindgen"]
+repository = "https://gitlab.com/SirJson/rq3vm"
+readme = "README.md"
+exclude = ["**/*.gitignore", "ext/q3vm/*"]
 
 [dependencies]
 lazy_static = "1"
