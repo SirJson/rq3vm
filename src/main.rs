@@ -14,7 +14,6 @@ mod system;
 #[macro_use]
 mod vm;
 
-use std::fs::File;
 use std::io::{self, Read};
 
 fn main() -> Result<(), io::Error> {

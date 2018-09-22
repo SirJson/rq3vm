@@ -86,7 +86,7 @@ impl<'a> CallArgs<'a> {
             return String::default();
         }
         unsafe {
-            let cstr = CStr::from_ptr(VM_ArgPtr(self.args[idx], self.vm) as *mut raw::c_char);
+            let cstr = CStr::from_ptr(VMA_(self.args[idx], self.vm) as *mut raw::c_char);
             match cstr.to_str() {
                 Ok(val) => String::from(val),
                 Err(error) => {
@@ -145,6 +145,7 @@ pub fn create(
             &mut vm,
             (&mut module).as_ptr(),
             (&mut bytecode).as_mut_ptr(),
+            bytecode.len() as raw::c_int,
             Some(syscalls),
         );
         SYSCALL_MAP.lock().unwrap().add(module, handler);

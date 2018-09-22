@@ -1,6 +1,6 @@
 [package]
 name = "libq3vm-sys"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["Raffael Zica <raffael@pixeltastic.de>"]
 build = "build.rs"
 
@@ -9,7 +9,7 @@ lazy_static = "1"
 log = "0.4"
 
 [build-dependencies]
-cc = "1"
+cc = { version = "1",  features = ["parallel"] }
 bindgen = "0.26"
 crc = "1.8"
 commandspec = "0.10"

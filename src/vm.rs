@@ -10,12 +10,7 @@ pub struct Q3VM {
     bytecode: Vec<u8>,
     handle: libq3vm_sys::VMHandle,
 }
-/*
-    pub fn compile<T: AsRef<Path>, S: AsRef<Path>>(tools_dir: T, syscall_def: S, src: Iter<&str>)
-    {
 
-    }
-*/
 #[macro_export]
 macro_rules! vm_compile {
     ($tools:expr, $syscall_def:expr, $target:expr => [ $( $src_file:expr ),* ]) => {
@@ -25,6 +20,17 @@ macro_rules! vm_compile {
         use $crate::std::path::PathBuf;
         use $crate::std::fs::File;
         use $crate::std::io::Write;
+
+        fn print_byte_str(data: Vec<u8>) {
+            match String::from_utf8(data) {
+                Ok(msg) => {
+                    if msg.len() > 0 {
+                        println!("{}", msg);
+                    }
+                }
+                Err(err) => eprintln!("Failed to read compiler message: {:?}", err),
+            }
+        }
 
         let mut asm_files: Vec<String> = Vec::new();
         let tools_path = fs::canonicalize($tools).expect("Failed to canonicalize tools path");
@@ -42,8 +48,10 @@ $(
         .args(args)
         .output()
         .expect("Failed to compile script source code");
-        println!("{}",String::from_utf8_lossy(&result.stdout));
-        println!("{}",String::from_utf8_lossy(&result.stderr));
+
+        print_byte_str(result.stdout);
+        print_byte_str(result.stderr);
+
         asm_files.push(asm_file.clone());
 )*
         let syscall_file = fs::canonicalize($syscall_def).expect("Failed to find syscall definitions");
@@ -51,10 +59,10 @@ $(
         script.push("game.q3asm");
         let linker_script_path = String::from(script.to_str().unwrap());
         let mut file = File::create(&linker_script_path).expect("Failed to create assembler script");
-        file.write(format!("-o \"{}\"\n",$target).as_bytes());
-        file.write(format!("{}\n", syscall_file.to_str().expect("Non valid UTF-8 path provied")).as_bytes());
+        file.write(format!("-o \"{}\"\n",$target).as_bytes()).expect("Failed to write line 1 of the assembler script. Do you have the permissions to write in that folder?");
+        file.write(format!("{}\n", syscall_file.to_str().expect("Non valid UTF-8 path provied")).as_bytes()).expect("Failed to write line 2 of the assembler script. Do you have the permissions to write in that folder?");
         for asm in asm_files {
-            file.write(format!("{}\n", asm).as_bytes());
+            file.write(format!("{}\n", asm).as_bytes()).expect("Failed to write a line of the assembler script. Do you have the permissions to write in that folder?");
         }
         file.sync_all().unwrap();
 
@@ -63,8 +71,9 @@ $(
         .args(&["-f",&linker_script_path])
         .output()
         .expect("Failed to assemble byte code");
-        println!("{}",String::from_utf8_lossy(&result.stdout));
-        println!("{}",String::from_utf8_lossy(&result.stderr));
+
+        print_byte_str(result.stdout);
+        print_byte_str(result.stderr);
     }
 }
 
